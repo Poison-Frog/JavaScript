@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>attributes</title>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+var div=document.getElementById('box');
+var attr=document.createAttribute('data');
+attr.value='wrap';
+div.attributes.setNamedItem(attr);
+document.write(div.attributes.getNamedItem('data').nodeValue);
+</script>
+</html>
+ 

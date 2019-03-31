@@ -1,0 +1,20 @@
+<!DOCTYPE html> 
+<html lang="zh-CN"> 
+<head> 
+    <meta charset="UTF-8" /> 
+    <title>函数的间接调用</title> 
+</head> 
+<body> 
+    <script> 
+   var data = [3, 4, 2, 1];
+   function multiply() {
+       var result = 1;
+       for (var p in arguments) {
+           result *= arguments[p];
+       }
+       return result;
+   }
+   document.write(multiply.apply(window, data));
+    </script> 
+</body> 
+</html>

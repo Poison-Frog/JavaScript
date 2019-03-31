@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>arguments</title>
+</head>
+<body>
+    <script type="text/javascript">
+            function Count(){
+                var result=0;
+                for(var i in arguments){
+                    result+=arguments[i];
+                }
+                return result;
+            }
+            var total=Count.apply(Count,[1,12,23,34,45]);
+            document.write(total);
+    </script>
+</body>
+</html>

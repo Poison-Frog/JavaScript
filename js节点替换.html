@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>节点练习</title>
+</head>
+<body>
+    <div id="wrap">
+      <ul id="list">
+        <li>第一个li</li>
+        <li>第二个li</li>
+        <li>第三个li</li>
+      </ul>
+    </div> 
+    <script>
+     (function(){
+         var wrap=document.getElementById('wrap');
+         var ul=wrap.firstElementChild;
+         var newul=document.createElement('ul');
+         var li=null;
+         var txt=null;
+         var arr=['HTML','CSS','HTML5','CSS3'];
+         for(var i=0;i<4;i++){
+             txt=document.createTextNode(arr[i]);
+             li=document.createElement('li');
+             li.appendChild(txt);
+             newul.appendChild(li);
+         }
+         wrap.replaceChild(newul,ul);
+     })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        header {
+            width: 80%;
+            margin: 0 auto;
+            height: 30px;
+            line-height: 30px;
+            text-align: left;
+            background-color: #4a91cc;
+            color: white;
+            padding-left: 20px;
+        }
+ 
+        section {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #eee;
+            height: 600px;
+            padding-top: 40px;
+            padding-left: 20px;
+        }
+ 
+        section > form {
+            width: 530px;
+            line-height: 40px;
+            margin: 0 auto;
+        }
+ 
+        tr td:first-child {
+            text-align: right;
+        }
+ 
+        td {
+            color: gray;
+            padding-right: 10px;
+        }
+ 
+        td span {
+            font-size: 10px;
+            color: red;
+        }
+ 
+        input, select {
+            height: 25px;
+            width: 170px;
+            border: gray 1px solid;
+        }
+ 
+        .btn {
+            display: block;
+            width: 70px;
+            margin-top: 40px;
+            margin-left: 40%;
+            height: 40px;
+            background-color: #4a91cc;
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>用户注册</header>
+    <section>
+        <form>
+            <table>
+                <tr>
+                    <td>用户名：</td>
+                    <td><input id="user" type="text"></td>
+                    <td><span> </span></td>
+                </tr>
+                <tr>
+                    <td>登录密码：</td>
+                    <td><input id="password" type="password"></td>
+                    <td><span></span></td>
+                </tr>
+                <tr>
+                    <td>确认密码：</td>
+                    <td><input id="checkPass" type="password"></td>
+                    <td><span></span></td>
+                </tr>
+                <tr>
+                    <td>姓名：</td>
+                    <td><input id="name" type="text"></td>
+                    <td><span></span></td>
+                </tr>
+                <tr>
+                    <td>性别：</td>
+                    <td>
+                        <select>
+                            <option value="man">男</option>
+                            <option value="woman">女</option>
+                        </select>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>身份证号码：</td>
+                    <td><input id="id" type="text"></td>
+                    <td><span></span></td>
+                </tr>
+                <tr>
+                    <td>邮箱：</td>
+                    <td><input id="mail" type="text"></td>
+                    <td><span></span></td>
+                </tr>
+                <tr>
+                    <td>手机号码：</td>
+                    <td><input id="tel" type="text"></td>
+                    <td><span></span></td>
+                </tr>
+            </table>
+        </form>
+        <button class="btn">提交</button>
+    </section>
+<script src="https://www.jq22.com/jquery/jquery-3.3.1.js"></script>
+<script>
+    //正则表达式
+ var userPattern = /^[a-zA-Z]\w{5,19}$/,
+        passwordPattern = /^\S{6,18}$/,
+        namePattern = /^[\u4e00-\u9fa5]{2,4}$/,
+        idPattern = /^\d{15}$|^\d{18}$|^\d{17}X$/i,
+        mailPattern = /^\w+@[a-z]+\.[a-z]+$/,
+        telPattern = /^(134|135|136|137|138|139|147|150|151|152|158|159|182|187|188|130|131|132|155|156|185|186|133|153|180|189)\d{8}$/;
+    //传入dom节点，正则表达式和错误提示语句   失去焦点时执行判断
+ function check(ele, pattern, errortext) {
+        ele.on("blur", function () {
+            let text = ele.parent().parent().find("span");
+            pattern.exec(ele.val()) ? text.html("ok") : text.html(errortext);
+        })
+    }
+    //确认密码失去焦点判断 是否已经填写符合格式的密码  是的话再判断两次密码是否一致
+ $("#checkPass").on("blur", function () {
+        let text = $(this).parent().parent().find("span");
+        if ($("#password").parent().parent().find("span").html() === "ok") {
+ 
+            $(this).val() === $("#password").val() ? text.html("ok") : text.html("两次输入密码不一致");
+        } else {
+            text.html("请先输入符合格式的密码");
+        }
+    });
+    //提交按钮
+ $(".btn").on("click", function () {
+        var flag = false;
+        for (let i = 0; i < $("span").length; i++) {
+            (function (i) {
+                if ($("span").eq(i).html() === "ok") {
+                    flag = true;
+                } else {
+                    flag = false;
+                    return flag;
+                }
+            })(i);
+        }
+        if (flag) {
+            alert("注册成功");
+        } else {
+            alert("请按照要求填写相关信息");
+        }
+    });
+    check($("#user"), userPattern, "6-20位字母、数字或“_”,字母开头");
+    check($("#password"), passwordPattern, "6-18位数字字母或符号，不能有空格");
+    check($("#name"), namePattern, "两位到四位的中文汉字");
+    check($("#id"), idPattern, "15位或18位数字，18位最后一位可能是x");
+    check($("#mail"), mailPattern, "请输入正确邮箱格式");
+    check($("#tel"), telPattern, "请输入正确手机格式");
+</script>
+</body>
+</html>

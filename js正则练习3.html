@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>正则表达式</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    var str = 'JavaScript_RegExp_5@gmail.com';
+	var rep1 = /_RegExp_5@gm/;
+    var rep2 = new RegExp("_RegExp_5@gm");
+    var rep3 = /_RegExp_5@gm/i;
+    var rep4 = new RegExp("_RegExp_5@gm", "i");
+    document.write(rep1.test(str) + '/' + rep2.test(str) + '/' + rep3.test(str) + '/' + rep4.test(str) + '/' + rep1.exec(str) + '/'+ rep2.exec(str) + '/'+ rep3.exec(str) + '/'+ rep4.exec(str) + '/')
+</script>
+</body>
+</html>

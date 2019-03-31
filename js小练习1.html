@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Animal(name,count){
+            this.name=name;
+            this.count=count;
+        }
+        function Cat(){}
+        Cat.prototype=new Animal('小猫',10);
+        Cat.prototype.info=function(){
+            alert('一共有'+this.name+this.count+'只');
+        }
+        var p=new Cat();
+        p.info();
+    </script>
+</body>
+</html>
+ 

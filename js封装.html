@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5-4</title>
+</head>
+<body>
+<script>
+function person () {
+        var privateStore ={};
+        function _set (obj) {
+            for (var i in obj) {
+                privateStore[i] = obj[i];
+            }
+        }
+        function _get () {
+            return privateStore;
+        }
+        this.set = function () {
+            return _set;
+        }
+        this.get = function () {
+            return _get;
+        }
+    }
+    var student = new person();
+    student.set()({name:'小明',age:19,sex:'男'})
+    console.log(student.get()())
+</script>
+</body>
+</html>

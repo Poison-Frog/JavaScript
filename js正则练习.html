@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>正则表达式</title>
+</head>
+<body>
+<script type="text/javascript">
+    var str = 'regular expression = regexp';
+	var pattren1=/lar exp/;
+    var pattren2=new RegExp('lar exp');
+    document.write(pattren1.test(str)+"/"+pattren2.test(str)+"/"+pattren1.exec(str)+"/"+pattren2.exec(str)+"/");
+</script>
+</body>
+</html>
+ 

@@ -1,0 +1,32 @@
+<!DOCTYPE html> 
+<html lang="zh-CN"> 
+<head> 
+    <meta charset="UTF-8" /> 
+    <title>函数定义的位置</title> 
+</head> 
+<body> 
+<script type="text/javascript"> 
+var num = prompt("请输入一组要相加的整数,用逗号分开"),
+        numArray = num.split(",")
+        add(numArray);
+    function add(numArray){
+        var sum = null;
+        function isNumber(num){
+            if (isNaN(num)) {
+                return false;
+            }else {
+                return true;
+            }
+        }
+        for (var i = 0; i < numArray.length; i++) {
+            if(isNumber(numArray[i])==false){
+                return document.write("请传入数字类型的参数");
+            }
+            sum +=parseInt(numArray[i]);
+        }
+        return document.write(sum);
+    }
+</script> 
+</body> 
+</html>
+    

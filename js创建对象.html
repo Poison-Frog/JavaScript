@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">  
+		// json格式
+		var fn1 = {
+			name: "imooc1",
+			action: function () {
+				alert('前端1')
+			}
+		};
+		// Object方式
+		var fn2 = new Object();
+		fn2.name = "imooc2"
+		fn2.action = function () {
+			alert("前端2")
+		}
+		// 构造函数方式
+        function obj (name) {
+			this.name = name;
+			this.action = function () {
+				alert("前端3")
+			}
+		}
+		var fn3 = new obj("imooc3");
+		console.log(fn1.name)
+		fn1.action();
+		console.log(fn2.name)
+		fn2.action();
+		console.log(fn3.name)
+		fn3.action();
+	</script>
+</body>
+</html>

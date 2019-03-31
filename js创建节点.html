@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .li{list-style:none;height:50px;line-height:50px;width:100px;background-color:lightblue;text-align:center;}
+  </style>
+</head>
+<body>
+    <script>
+      (function(){
+          var ul = document.createElement('ul'),
+              fragment = document.createDocumentFragment(),
+              comment = document.createComment('创建节点');
+              txt = "",
+              li = null;
+           
+          for(var i = 0; i<3;i++){
+              li = document.createElement('li');
+              li.className = "li";
+              txt = document.createTextNode('第'+(i+1)+'个li');
+              li.appendChild(txt);
+              fragment.appendChild(li);
+          }
+          ul.appendChild(fragment);
+          document.body.appendChild(ul);
+          document.body.insertBefore(comment,document.body.firstChild);
+      })();
+    </script>
+</body>
+</html>

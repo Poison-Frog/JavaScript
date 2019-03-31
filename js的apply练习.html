@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Animal(name,count){
+            this.name=name;
+            this.count=count;
+            this.getInfo=function(){
+                alert('一共有'+this.count+'只'+this.name+'。');
+            }
+        }
+        function Cat(name,count){
+             Animal.call(this,name,count);
+         }
+         function Dog(name,count){
+             Animal.apply(this,[name,count]);
+         }
+         var cat=new Cat('猫',9);
+         var dog=new Dog('狗',17);
+         cat.getInfo();
+         dog.getInfo();
+    </script>
+</body>
+</html>
+   

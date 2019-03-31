@@ -1,0 +1,22 @@
+<!DOCTYPE html> 
+<html lang="zh-CN"> 
+<head> 
+    <meta charset="UTF-8" /> 
+    <title></title> 
+</head> 
+<body> 
+    <script> 
+var datas=[2,4,1,-1,56,3,-7];
+    function min(){
+        if(arguments.length==0){ return;}
+        var arg=arguments[0];
+        for(var i=0;i<arguments.length;i++){
+            arg = arg > arguments[i] ? arguments[i] : arg;
+        }
+         return arg;
+    }
+    var results=min.apply(window,datas);
+    document.write(results);
+    </script> 
+</body> 
+</html>

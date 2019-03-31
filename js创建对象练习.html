@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 工厂模式
+	function fn1(name){
+    var obj=new Object();
+    obj.name=name;
+    obj.action=function(){
+        alert("前端1");
+    }
+    return obj;
+     }
+     var box1=fn1("imooc1");
+     alert(box1.name);
+     box1.action();
+		// 原型模式
+	function fn2(){}
+fn2.prototype.name="imooc2";
+fn2.prototype.action=function(){
+    alert("前端2")
+}
+var box2=new fn2();
+alert(box2.name);
+     box2.action();	
+		// 混合模式
+		function fn3(name){
+    this.name=name;
+}
+fn3.prototype.action=function(){
+    alert("前端3");
+}
+var box3=new fn3("imooc3");
+alert(box3.name);
+box3.action();
+	</script>
+</body>
+</html>

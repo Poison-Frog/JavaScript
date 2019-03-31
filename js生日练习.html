@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>作业</title>
+</head>
+<body>
+   <script>
+   function sr()
+      {
+         var n=parseInt(prompt("请输入年份"));
+         var y=parseInt(prompt("请输入月份"));
+         var r=parseInt(prompt("请输入日期"));
+         var allyear=birthday(n,y,r);
+    }
+   function birthday(n,y,r)
+      {
+         var arr=[31,28,31,30,31,30,31,31,30,31,30,31];
+         var sum=0,i;
+         for(i=0;i<y-1;i++)
+         {
+            sum+=arr[i];
+         }   
+      if(n%4==0&&n%100!=0 || n%400==0&&y>2)
+         {
+            sum+=1;
+         }
+          document.write("你的生日在"+n+"年是第"+(sum+r)+"天");
+   }      
+   	  sr();
+   </script>
+</body>
+</html>

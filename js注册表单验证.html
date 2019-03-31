@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        form{
+            width:300px;
+            background:pink;
+            text-align: center;
+            padding:30px 0;
+            margin:100px auto;
+        }
+
+    </style>
+</head>
+<body>
+    <form id="form">
+        <p><input type="text" name="name" id="username" placeholder="请输入账户名"></p>
+        <span></span>
+        <p><input type="text" name="chinaName" id="chinaName" placeholder="请输入中文名"></p>
+        <span></span>
+        <p><input type="email" name="eamil" id="email" placeholder="请输入邮箱"></p>
+        <span></span>
+        <p><input type="submit" value="注册" id="submit"></p>
+    </form>
+    <script type="text/javascript">
+        (function(){
+            var spans=document.getElementsByTagName("span");
+            var username=document.getElementById("username");
+            var chinaName=document.getElementById("chinaName");
+            var email=document.getElementById("email");
+            var submit=document.getElementById("submit");
+            var input1=false;
+            var input2=false;
+            var input3=false;
+            username.onfocus = function(){
+                spans[0].innerHTML = "请输入6-18位字母、数字、下划线";
+            }
+            username.onblur = function(){
+                var reg = /^\w{6,18}$/;
+                if(!reg.test(username.value)){
+                    spans[0].innerHTML = "必须输入6-18位字母、数字、下划线";
+                    input1 = false;
+                }else{
+                    spans[0].innerHTML = "格式正确";
+                    input1 = true;
+                }
+            }
+            chinaName.onfocus = function(){
+                spans[1].innerHTML = "请输中文名字";
+            }
+            chinaName.onblur = function(){
+                var reg = /^[\u4e00-\u9fa5]+$/;
+                if(!reg.test(chinaName.value)){
+                    spans[1].innerHTML = "必须输入中文名";
+                    input2 = false;
+                }else{
+                    spans[1].innerHTML = "格式正确";
+                    input2 = true;
+                }
+            }
+            email.onfocus = function(){
+                spans[2].innerHTML = "请输入邮箱";
+            }
+            email.onblur = function(){
+                var reg = /^\w+@([^\._-])+\.[a-zA-Z]{2,4}$/;
+                if(!reg.test(email.value)){
+                    spans[2].innerHTML = "输入的邮箱格式不正确";
+                    input3 = false;
+                }else{
+                    spans[2].innerHTML = "邮箱格式正确";
+                    input3 = true;
+                }
+            }
+            submit.onclick = function(){
+                if(input1 && input2 && input3){
+                    alert("注册成功");
+                }else{
+                    alert("请按照要求完整填写信息");
+                }
+            }
+        })();
+    </script>
+</body>
+</html>

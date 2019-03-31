@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> 事件</title>
+</head>
+<body>
+    <input type='text' id='num1' />
+    <select id='operate'>
+        <option value='+'>+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input type='text' id='num2' />
+    <input type='button' value=' = ' onclick="count()" />
+    <input type='text' id='result' />
+    <script type="text/javascript">
+        function count() {
+            var wrap={
+                num1:document.querySelector('#num1'),
+                num2:document.querySelector('#num2'),
+                operate:document.querySelector('#operate'),
+                result:document.querySelector('#result'),
+            }
+            var math={
+                add:function(num1,num2){
+                    return +num1 + +num2;
+                },
+                subtract:function(num1,num2){
+                    return num1-num2;
+                },
+                multiply:function(num1,num2){
+                    return num1*num2;
+                },
+                divide:function(num1,num2){
+                    return num1/num2;
+                }
+            }
+            var operation=(function(){
+                  switch(operate.value){
+                    case '+':
+                        wrap.result.value=math.add(wrap.num1.value,wrap.num2.value);
+                        break;
+                    case '-':
+                        wrap.result.value=math.subtract(wrap.num1.value,wrap.num2.value);
+                        break;
+                    case '*':
+                        wrap.result.value=math.multiply(wrap.num1.value,wrap.num2.value);
+                        break;
+                    case '/':
+                        wrap.result.value=math.divide(wrap.num1.value,wrap.num2.value);
+                        break;
+                    }
+            })();
+        }
+    </script>
+</body>
+</html>
+ 

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2-1</title>
+    <style>
+        li{
+          width:200px;
+          background:black;
+          margin-top:50px;
+          color:white;
+          text-align:center;
+        }
+        li:hover{
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>0</li>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        var li=document.getElementsByTagName("li");
+        for(var i=0,len=li.length;i<len;i++){
+            (function(i){
+               li[i].onclick=function(){
+                   alert(i);
+               }
+            })(i)
+        }
+    </script>
+</body>
+</html>

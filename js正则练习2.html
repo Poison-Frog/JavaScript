@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>输出字符串</title>
+</head>
+<body>
+<script type="text/javascript">
+    var str = '一个"普通字符"在匹配字符串的时候，匹配与它相同的一个字符';
+	var pattern1=/"普通字符"/;
+    var pattern2=new RegExp('"普通字符"');
+    document.write(pattern1.test(str)+'/'+pattern2.test(str)+'/'+pattern1.exec(str)+'/'+pattern2.exec(str)+'/');
+</script>
+</body>
+</html>

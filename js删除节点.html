@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+    html, body {
+        margin: 0;
+        padding: 0;
+    }
+    div:not(:nth-of-type(2)) {
+        width: 500px;
+        height: 100%;
+        background-color: #00c4ff7a;
+        margin: 0 auto;
+    }
+    /*ul默认有外边距*/
+    ul {
+        width: 300px;
+        height: 100%;
+        background-color: #f9c3e6d6;
+        list-style: none;
+        /*清除默认边距*/
+        margin: 0;
+        padding: 0;
+        margin: 20px auto;
+        margin-bottom: 30px;
+    }
+    li {
+        width: 200px;
+        height: 30px;
+        line-height: 30px;
+        margin: 30px auto;
+        background-color: #cdffc0;
+    }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <button id="btnAdd">添加元素</button>
+        <button id="btnRemove">删除元素</button>
+        <ul id="list">我是ul
+            <li>我是li1</li>
+            <li>我是li2</li>
+            <li>我是li3</li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+    var  ul=document.getElementById("list");
+    var  lis=ul.children;
+    var  addBtn=document.getElementById("btnAdd");
+    var  removeBtn=document.getElementById("btnRemove");
+    // 前三个li绑定鼠标事件
+    function firstThreeHover(){
+      var len=ul.children.length;
+      (len>=3)?len=3:len=ul.children.length;
+       for(var i=0;i<len;i++){
+      (function(i){
+         lis[i].onmouseover=function(){
+         lis[i].style.backgroundColor="blue";
+      }
+         lis[i].onmouseout=function(){
+         lis[i].style.backgroundColor="pink";
+      }
+      })(i);
+    }
+    }
+    firstThreeHover();
+    // 点击按钮增加li
+    addBtn.onclick=function(){
+          var len=ul.children.length;
+          if(len<10){
+              var li=document.createElement("li");
+              li.appendChild(document.createTextNode("我是li"+(len+1)));
+              ul.appendChild(li);
+          }
+          firstThreeHover();
+    }
+    // 点击移除最后一个按钮
+    removeBtn.onclick=function(){
+    if(ul.children.length>0){
+         ul.removeChild(ul.lastElementChild);
+     }
+       firstThreeHover();
+    }
+    </script>
+</body>
+</html>

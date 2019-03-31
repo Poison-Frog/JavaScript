@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        请选择菜单：
+        <select id="menu">
+            <option>请选择</option>
+            <option value="fruit">水果</option>
+            <option value="cake">蛋糕</option>
+            <option value="nuts">坚果</option>
+        </select>
+    </p>
+    <p>该系列有：<span></span></p>
+    <script>
+    var menu=document.getElementById('menu');
+    var span=document.querySelector('span');
+        menu.onchange=function(){
+            switch(menu.value){
+                case 'fruit':span.innerHTML='苹果、香蕉、鸭梨、橙子、西瓜';
+                break;
+                case 'cake':span.innerHTML='慕斯、蛋糕、海绵、重油、戚风';
+                break;
+                case 'nuts':span.innerHTML='碧根果、巴旦木、夏威夷果、腰果、开心果';
+                break;
+                default:span.innerHTML='';
+                break;
+            }
+    }
+    </script>
+</body>
+</html>
