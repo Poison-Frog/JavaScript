@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <title>userAgent</title>
+
+    </head>
+
+    <body>
+
+       <input type="button" value="点击获取浏览器信息" id="browser">
+
+       <script type="text/javascript">
+
+          //封装一个检测浏览器的函数
+
+          function getBrow(){
+
+           //通过userAgent属性来检测浏览器属性
+
+           var browser=navigator.userAgent,
+
+           returnBro;
+
+           //使用字符串来判断浏览器名称
+
+           if(browser.indexOf("MSIE")>-1){
+
+           returnBro="IE";
+
+           }else if(browser.indexOf("Firefox")>-1){
+
+           returnBro="火狐浏览器";
+
+           }else if(browser.indexOf("Chrome")>-1){
+
+           returnBro="谷歌浏览器";
+
+           }
+
+           return returnBro;
+
+          }
+
+          document.getElementById("browser").onclick=function(){
+
+             //接受值
+
+          var showBrow=getBrow()
+
+          alert("当前浏览器是："+showBrow)
+
+          }
+
+        
+
+       </script>
+
+    </body>
+
+</html>
