@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>模版字符串</title>
+</head>
+
+<body>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+    <script type="text/javascript">
+    const tmpl = function() {
+        return {
+            title: "前端",
+            data: [{
+                title: '布局基础',
+                date: ["html", "css"]
+            }, {
+                title: '网页特效',
+                date: ["javascript", "jquery"]
+            }, {
+                title: '框架',
+                date: ["bootstrap", "vue"]
+            }]
+        }
+    }
+    let arr = [];
+    const { title, data: listdata } = tmpl();
+    arr.push(
+        `<caption>${title}</caption>`
+    );
+    listdata.forEach(function({ title, date }) {
+        arr.push(
+            `<tr>
+                <td>${title}</td>
+                <td>${date[0]}</td>
+                <td>${date[1]}</td>
+             </tr>`
+        );
+    });
+ 
+    let table = document.createElement('table');
+    table.innerHTML = arr.join('');
+    document.body.append(table);
+    table.setAttribute('border', '1px solid #000');
+    </script>
+</body>
+</html>
