@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    let showPic=function(url){
+        return new Promise(resolve=>{
+            setTimeout(function(){
+                var img=document.createElement('img');
+                img.src=url;
+                document.body.append(img);
+                resolve();
+            },1000);
+        });
+    }
+ 
+    showPic('http://climg.mukewang.com/5b16558d00011ed506000338.jpg')
+        .then(function(){
+            return showPic('http://climg.mukewang.com/5b165603000146ca06000338.jpg ');
+        })
+        .then(function(){
+            return showPic('http://climg.mukewang.com/5b1656140001c89906000338.jpg ');
+        })
+</script>
+</body>
+</html>
