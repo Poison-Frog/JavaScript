@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        let arr = ["前端", "jquery", "javascript", "html", "css"];
+        let template=document.createElement('ul');
+        document.body.appendChild(template);
+        let ul=document.querySelector('ul');
+        for (let text of arr) {
+            let li=document.createElement('li');
+            li.innerText=text;
+            ul.appendChild(li);
+        }
+    </script>
+</body>
+</html>
