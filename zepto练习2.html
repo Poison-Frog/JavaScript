@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+	<title>Document</title>
+	<style>
+		.red{
+			color: red;
+			font-size: 24px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<ul>
+		<li>Web</li>
+		<li>PHP</li>
+		<li>java</li>
+	</ul>
+	<script src="https://cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
+	<script>
+		 $('div').next().find("ul li").eq(0).addClass('red').text('前端');
+	</script>
+</body>
+</html>
