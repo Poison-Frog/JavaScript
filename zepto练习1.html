@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+      .red {
+          color: red;
+      }
+    </style>
+</head>
+<body>
+    <ul>
+      <li>前端小白入门</li>
+      <li>前端进阶：响应式开发与常用框架</li>
+      <li>HTML5与CSS3实现动态网页</li>
+      <li>HTML5&CSS3进阶与常用框架</li>
+      <li>JavaScript基础入门</li>
+      <li>进击JavaScript核心</li>
+    </ul>
+    <script src="https://cdn.bootcss.com/zepto/1.1.7/zepto.min.js"></script>
+    <script>
+      $('li').on('click',function(){
+          $(this).addClass('red')
+          .siblings().removeClass('red');
+      })
+    </script>
+</body>
+</html>
