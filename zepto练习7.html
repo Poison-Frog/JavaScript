@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>层级选择器</title>
+    <style type="text/css">
+      .box{
+        width: 300px;
+        height: 300px;
+        background: pink;
+      }
+      .smallbox{
+        display: none;
+        width: 100px;
+        height: 100px;
+        background: lightblue;
+      }
+    </style>
+</head>
+<body>
+   <input type="button" name="button" value="添加"/>
+  
+   <ul>
+     <li>111</li>
+     <li>222</li>
+     <li>333</li>
+     <li>444</li>
+   </ul>
+     
+    <script src="https://cdn.bootcss.com/zepto/1.1.7/zepto.min.js"></script>
+    <script>
+       $(document).ready(function(){
+           $('ul').on('mouseover','li',function(){
+               $(this).css('background','red');
+           }).on('mouseout','li',function(){
+               $(this).css('background','#fff');
+           })
+           var length=$('ul li').length;
+           console.log(length)
+           $('input').on('click',function(){
+               length++;
+               var list=document.createElement('li');
+               var text=document.createTextNode(111*length);
+               list.appendChild(text);
+               $('ul')[0].appendChild(list);
+           })
+       })
+    </script>
+</body>
+</html>
