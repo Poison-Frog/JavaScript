@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function removeWithoutCopy(arr, item) {
+    		var n=arr.length;
+     		for(var i=0;i<n;i++){
+         		if(arr[0]!==item)   
+             		arr.push(arr[0]);
+         			arr.shift();
+           
+    			}
+    		return arr;
+		}
+	</script>
+</body>
+</html>
