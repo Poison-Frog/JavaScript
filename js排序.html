@@ -6,15 +6,14 @@
 </head>
 <body>
 <script>
- 
     var arr=[ ],input;
     while(input!="-1"){
-        input=prompt("请输入您想排序的数字");
+        input=prompt("请输入您想排序的数字，当输入-1时停止");
         arr.push(input)
      }
     arr.pop();
-    arr.sort(function(a,b){return b-a});
-document.write(arr);
+    arr.sort(function(a,b){return a-b});
+	document.write(arr);
 </script>
 </body>
 </html> 
