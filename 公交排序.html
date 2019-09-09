@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		const res = {
+			code: 0,
+			data: {
+				lines: '20路,301路,5路,地铁5号线,机场大巴线,107路,机场快轨',
+				lineids: 'lzbd,lwes,lxid,lwic,lwdf,ldfx,loin',
+				linedetails: {
+					lwdf: {name: '机场大巴线'},
+					lwes: {name: '301路'},
+					lwic: {name: '地铁7号线'},
+					lwiv: {name: '地铁5号线'},
+					ldfx: {name: '107路'},
+					lzbd: {name: '20路'},
+					lxid: {name: '5路'},
+					loin: {name: '机场快轨'}
+				}
+			}
+		}
+		parse(res)
+		function parse(res){
+			var linedetails = res.data.linedetails;
+			var linesArr = res.data.lines.split(",");
+			var lineids = res.data.lineids.split(",");
+			var chLine = []; //常规
+			var dtLine = []; //地铁
+			var ontherLine = []; //其他
+			var tempArr = [];
+			var res=[]; //最终生成的数组
+			for(var i = 0; i <linesArr.length;i++){
+				var lastName = linesArr[i].charAt(linesArr[i].length-1);
+				var firstName = linesArr[i].slice(0,2);
+				if(lastName === '路'){
+					chLine.push({
+						name:linesArr[i],
+						lines:lineids[i]
+					});
+				}else if(firstName === '地铁'){
+					dtLine.push({
+						name:linesArr[i],
+						lines:lineids[i]
+					});
+				}else{
+					ontherLine.push({
+						name:linesArr[i],
+						lines:lineids[i]
+					});
+				}
+			}
+			chLine.sort(compareNum);
+			dtLine.sort(compareNum);
+			ontherLine.sort(compareLong);
+			// console.log( chLine,dtLine,ontherLine)
+			tempArr = tempArr.concat(chLine,dtLine,ontherLine);
+			// console.log(tempArr)
+			for(var key in tempArr){
+				var map={};
+				map.name = tempArr[key].name ;
+				var result = {};
+				result[tempArr[key].lines] = map; 
+				res.push(result)
+			}
+			console.log(res)
+			return res;
+		}
+		function compareLong(a,b){
+			return a.name.length - b.name.length;
+		}
+		function compareNum(a,b){
+			var testNum = /\d+/g;
+			return a.name.match(testNum) - b.name.match(testNum);
+		}
+	</script>
+</body>
+</html>
